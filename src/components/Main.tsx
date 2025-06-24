@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Form from './Form';
 import List from './List';
+import styles from './Main.module.css';
 
 export type taskObj = {
   name: string;
@@ -8,7 +9,7 @@ export type taskObj = {
 };
 
 function Main() {
-  const [task, setTask] = useState<taskObj[]>([]);
+  const [tasks, setTask] = useState<taskObj[]>([]);
 
   function handleSetTask(taskInput: taskObj) {
     setTask(prevTasks => {
@@ -21,10 +22,10 @@ function Main() {
   }
 
   return (
-    <div>
-      <Form onSetTask={handleSetTask}></Form>
-      <ul>
-        {task.map(task => {
+    <>
+      <Form onSetTask={handleSetTask} tasks={tasks}></Form>
+      <ul className={styles['todo-list']}>
+        {tasks.map(task => {
           return (
             <List
               taskRender={task}
@@ -34,7 +35,7 @@ function Main() {
           );
         })}
       </ul>
-    </div>
+    </>
   );
 }
 

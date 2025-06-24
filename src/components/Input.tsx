@@ -19,7 +19,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       <input
         type="text"
         id="task"
-        placeholder={placeholder ?? ''}
+        placeholder={placeholder || ''}
         ref={ref}
         required
         {...otherProps}

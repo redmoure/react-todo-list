@@ -1,13 +1,15 @@
-import { useRef, type FormEvent } from 'react';
 import Button from './Button';
 import Input from './Input';
+
 import { type taskObj } from './Main';
+import { useRef, type FormEvent } from 'react';
 
 type FormProps = {
   onSetTask: (taskInput: taskObj) => void;
+  tasks: taskObj[];
 };
 
-function Form({ onSetTask }: FormProps) {
+function Form({ onSetTask, tasks }: FormProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -22,7 +24,9 @@ function Form({ onSetTask }: FormProps) {
   return (
     <form action="" onSubmit={handleSubmit}>
       <Input placeholder={'Add your task'} ref={inputRef}></Input>
-      <Button type={'submit'}>Add</Button>
+      <Button type={'submit'} isDisabled={tasks.length >= 32 ? true : false}>
+        Add
+      </Button>
     </form>
   );
 }

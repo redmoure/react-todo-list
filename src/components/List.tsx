@@ -1,5 +1,6 @@
 import Button from './Button';
 import type { taskObj } from './Main';
+import styles from './List.module.css';
 
 type ListProps = {
   taskRender: taskObj;
@@ -8,7 +9,7 @@ type ListProps = {
 
 function List(props: ListProps) {
   return (
-    <div>
+    <div className={styles['todo-item']}>
       <p>{props.taskRender.name}</p>
       <Button
         type="button"

@@ -5,6 +5,7 @@ type ButtonProps = {
   type?: 'button' | 'submit' | 'reset';
   id?: number;
   onDeleteTask?: (id: number) => void;
+  isDisabled: boolean;
 } & ComponentPropsWithoutRef<'button'>;
 
 function Button({
@@ -12,9 +13,15 @@ function Button({
   type,
   onDeleteTask,
   id,
+  isDisabled,
   ...restProps
 }: ButtonProps) {
-  if (type === 'submit') return <button {...restProps}>{children}</button>;
+  if (type === 'submit')
+    return (
+      <button {...restProps} disabled={isDisabled}>
+        {children}
+      </button>
+    );
   if (type === 'button')
     return (
       <button {...restProps} onClick={() => onDeleteTask(id)}>
