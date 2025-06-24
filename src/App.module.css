@@ -3,3 +3,24 @@
   margin: 0;
   padding: 0;
 }
+
+button {
+  background-color: green;
+  border-radius: 4px;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: white;
+  color: green;
+}
+
+button:disabled {
+  background-color: #a5b4fc;
+  cursor: not-allowed;
+}
