@@ -1,5 +1,5 @@
 import Button from './Button';
-import type { taskObj } from './Main';
+import type { taskObj } from './MainBlock';
 import styles from './List.module.css';
 
 type ListProps = {
@@ -16,7 +16,7 @@ function List(props: ListProps) {
         id={props.taskRender.id}
         onDeleteTask={props.onDeleteTask}
       >
-        Done!
+        ✔
       </Button>
     </div>
   );

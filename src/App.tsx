@@ -1,7 +1,7 @@
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Main from './components/Main';
 import styles from './App.module.css';
+import MainBlock from './components/MainBlock';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <Header></Header>
       </div>
       <div className={styles.main}>
-        <Main></Main>
+        <MainBlock></MainBlock>
       </div>
       <div>
         <Footer></Footer>

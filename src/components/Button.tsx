@@ -25,7 +25,7 @@ function Button({
   if (type === 'button')
     return (
       <button {...restProps} onClick={() => onDeleteTask(id)}>
-        {'✔'}
+        {children}
       </button>
     );
 }

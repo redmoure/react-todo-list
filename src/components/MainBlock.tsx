@@ -8,7 +8,7 @@ export type taskObj = {
   id: number;
 };
 
-function Main() {
+function MainBlock() {
   const [tasks, setTask] = useState<taskObj[]>([]);
 
   function handleSetTask(taskInput: taskObj) {
@@ -39,4 +39,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default MainBlock;

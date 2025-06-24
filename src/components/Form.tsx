@@ -1,7 +1,7 @@
 import Button from './Button';
 import Input from './Input';
 
-import { type taskObj } from './Main';
+import { type taskObj } from './MainBlock';
 import { useRef, type FormEvent } from 'react';
 
 type FormProps = {
@@ -21,6 +21,7 @@ function Form({ onSetTask, tasks }: FormProps) {
     onSetTask(newTask);
     inputRef.current!.value = '';
   }
+
   return (
     <form action="" onSubmit={handleSubmit}>
       <Input placeholder={'Add your task'} ref={inputRef}></Input>
