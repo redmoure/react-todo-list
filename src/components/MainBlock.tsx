@@ -35,6 +35,8 @@ function MainBlock() {
     };
     taskNameRef.current!.value = '';
     taskNoteRef.current!.value = '';
+    setIsActiveModal(false);
+
     setTasks(prevTasks => [...prevTasks, newTask]);
   }
 

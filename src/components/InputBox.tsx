@@ -44,11 +44,7 @@ function InputBox({
           >
             x
           </Button>
-          <Button
-            type={'submit'}
-            className={'regular'}
-            handleIsActiveModal={handleIsActiveModal}
-          >
+          <Button type={'button'} className={'regular'}>
             Add
           </Button>
         </div>
