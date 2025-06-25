@@ -1,0 +1,25 @@
+.task-list {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  padding-left: 0.5rem;
+  width: 20vw;
+  background-color: white;
+  border-radius: 8px;
+}
+
+article {
+  width: fit-content;
+}
+
+.name {
+  color: black;
+  font-size: 1.5rem;
+}
+
+.note {
+  color: black;
+  font-size: 0.8rem;
+}

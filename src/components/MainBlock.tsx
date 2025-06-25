@@ -1,41 +1,62 @@
-import { useState } from 'react';
-import Form from './Form';
-import List from './List';
-import styles from './Main.module.css';
+import Button from './Button';
+import InputBox from './InputBox';
+
+import styles from '../styles/MainBlock.module.css';
+
+import { useRef, useState, type FormEvent } from 'react';
+import TasksList from './TasksList';
 
 export type taskObj = {
   name: string;
+  note: string;
   id: number;
 };
 
 function MainBlock() {
-  const [tasks, setTask] = useState<taskObj[]>([]);
+  const [isActiveModal, setIsActiveModal] = useState(false);
+  const [tasks, setTasks] = useState<taskObj[]>([]);
 
-  function handleSetTask(taskInput: taskObj) {
-    setTask(prevTasks => {
-      return [...prevTasks, taskInput];
-    });
+  const taskNameRef = useRef<HTMLInputElement>(null);
+  const taskNoteRef = useRef<HTMLInputElement>(null);
+
+  function handleSetIsActiveModal() {
+    return setIsActiveModal(!isActiveModal);
   }
 
-  function handleDeleteTask(id: number) {
-    setTask(prevTasks => prevTasks.filter(task => task.id !== id));
+  function handleOnSubmitTask(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const taskName = taskNameRef.current!.value;
+    const taskNote = taskNoteRef.current!.value;
+
+    const newTask: taskObj = {
+      name: taskName,
+      note: taskNote,
+      id: Math.random(),
+    };
+    taskNameRef.current!.value = '';
+    taskNoteRef.current!.value = '';
+    setTasks(prevTasks => [...prevTasks, newTask]);
   }
 
   return (
-    <>
-      <Form onSetTask={handleSetTask} tasks={tasks}></Form>
-      <ul className={styles['todo-list']}>
-        {tasks.map(task => {
-          return (
-            <List
-              taskRender={task}
-              key={task.id}
-              onDeleteTask={handleDeleteTask}
-            ></List>
-          );
-        })}
-      </ul>
-    </>
+    <div className={styles.block}>
+      <Button
+        className="regular"
+        type={'button'}
+        handleClick={handleSetIsActiveModal}
+      >
+        Click to add new task!
+      </Button>
+      <InputBox
+        taskNameRef={taskNameRef}
+        taskNoteRef={taskNoteRef}
+        isActive={isActiveModal}
+        handleIsActiveModal={handleSetIsActiveModal}
+        onSubmitTask={handleOnSubmitTask}
+      />
+
+      <TasksList tasks={tasks} />
+    </div>
   );
 }
 

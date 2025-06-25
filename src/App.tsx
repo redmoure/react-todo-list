@@ -1,21 +1,19 @@
 import Footer from './components/Footer';
 import Header from './components/Header';
-import styles from './App.module.css';
 import MainBlock from './components/MainBlock';
+import './App.module.css';
 
 function App() {
   return (
-    <>
-      <div>
+    <div>
+      <header>
         <Header></Header>
-      </div>
-      <div className={styles.main}>
-        <MainBlock></MainBlock>
-      </div>
-      <div>
+      </header>
+      <MainBlock></MainBlock>
+      <footer>
         <Footer></Footer>
-      </div>
-    </>
+      </footer>
+    </div>
   );
 }
 

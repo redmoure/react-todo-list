@@ -1,0 +1,40 @@
+.button {
+  background-color: white;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-size: 18px;
+}
+
+.regular {
+  display: flex;
+  height: 3.5rem;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px black;
+  font-size: 13px;
+  font-family: 'Oswald', sans-serif;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  margin-top: 0.3rem;
+  text-transform: uppercase;
+}
+
+.regular:hover {
+  background-color: black;
+  color: white;
+}

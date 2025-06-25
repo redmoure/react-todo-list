@@ -1,31 +1,40 @@
-import type { ComponentPropsWithoutRef, ReactNode } from 'react';
+import styles from '../styles/Button.module.css';
 
-type ButtonProps = {
-  children: ReactNode;
-  type?: 'button' | 'submit' | 'reset';
-  id?: number;
-  onDeleteTask?: (id: number) => void;
-  isDisabled: boolean;
+import type { ComponentPropsWithoutRef } from 'react';
+
+type ButtonTypeProps = {
+  className: string;
 } & ComponentPropsWithoutRef<'button'>;
 
-function Button({
-  children,
-  type,
-  onDeleteTask,
-  id,
-  isDisabled,
-  ...restProps
-}: ButtonProps) {
-  if (type === 'submit')
+type ClickButtonProps = {
+  type: 'button';
+  handleClick: () => void;
+} & ButtonTypeProps;
+
+type SubmitButtonProps = {
+  type: 'submit';
+  handleIsActiveModal: () => void;
+} & ButtonTypeProps;
+
+type ButtonProps = ClickButtonProps | SubmitButtonProps;
+
+function Button(props: ButtonProps) {
+  if (props.type === 'button')
     return (
-      <button {...restProps} disabled={isDisabled}>
-        {children}
+      <button
+        onClick={() => props.handleClick()}
+        className={`${styles[props.className]} ${styles.button}`}
+      >
+        {props.children}
       </button>
     );
-  if (type === 'button')
+  if (props.type === 'submit')
     return (
-      <button {...restProps} onClick={() => onDeleteTask(id)}>
-        {children}
+      <button
+        className={`${styles[props.className]} ${styles.button}`}
+        onClick={() => props.handleIsActiveModal()}
+      >
+        {props.children}
       </button>
     );
 }

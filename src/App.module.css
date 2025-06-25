@@ -1,10 +1,4 @@
-.main {
-  min-height: 700px;
-  margin: 0;
-  padding: 0;
-}
-
-button {
+/* button {
   background-color: green;
   border-radius: 4px;
   color: white;
@@ -23,4 +17,4 @@ button:hover {
 button:disabled {
   background-color: #a5b4fc;
   cursor: not-allowed;
-}
+} */
