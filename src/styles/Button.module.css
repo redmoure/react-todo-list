@@ -1,26 +1,5 @@
 .button {
   background-color: white;
-}
-
-.button:active {
-  transform: translateY(1px);
-}
-
-.button:hover {
-  cursor: pointer;
-}
-
-.close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  background-color: transparent;
-  color: black;
-  border: none;
-  font-size: 18px;
-}
-
-.regular {
   display: flex;
   height: 3.5rem;
   justify-content: center;
@@ -34,7 +13,33 @@
   text-transform: uppercase;
 }
 
-.regular:hover {
+.regular:hover,
+.done:hover {
   background-color: black;
   color: white;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-size: 18px;
+  top: 0;
+  right: 0;
+  height: 0.8rem;
+}
+
+.done {
+  position: absolute;
+  right: 1rem;
+  height: max-content;
 }

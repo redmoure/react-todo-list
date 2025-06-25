@@ -39,12 +39,12 @@ function InputBox({
           </Input>
           <Button
             className={'close'}
-            type="button"
+            type={'button'}
             handleClick={handleIsActiveModal}
           >
             x
           </Button>
-          <Button type={'button'} className={'regular'}>
+          <Button type={'submit'} className={'regular'}>
             Add
           </Button>
         </div>

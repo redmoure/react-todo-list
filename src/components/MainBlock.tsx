@@ -20,11 +20,12 @@ function MainBlock() {
   const taskNoteRef = useRef<HTMLInputElement>(null);
 
   function handleSetIsActiveModal() {
-    return setIsActiveModal(!isActiveModal);
+    setIsActiveModal(!isActiveModal);
   }
 
   function handleOnSubmitTask(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
     const taskName = taskNameRef.current!.value;
     const taskNote = taskNoteRef.current!.value;
 
@@ -40,10 +41,15 @@ function MainBlock() {
     setTasks(prevTasks => [...prevTasks, newTask]);
   }
 
+  function handleDeleteTask(id: number) {
+    const filtredTasks = tasks.filter(task => task.id !== id);
+    setTasks(filtredTasks);
+  }
+
   return (
     <div className={styles.block}>
       <Button
-        className="regular"
+        className={'regular'}
         type={'button'}
         handleClick={handleSetIsActiveModal}
       >
@@ -57,7 +63,7 @@ function MainBlock() {
         onSubmitTask={handleOnSubmitTask}
       />
 
-      <TasksList tasks={tasks} />
+      <TasksList tasks={tasks} onDeleteTask={handleDeleteTask} />
     </div>
   );
 }

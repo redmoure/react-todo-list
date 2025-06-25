@@ -4,13 +4,22 @@ import type { ComponentPropsWithoutRef } from 'react';
 
 type ButtonProps = {
   className: string;
-  handleClick?: () => void;
+  handleClick?: (id: number) => void;
+  type: 'button' | 'submit';
+  id?: number;
 } & ComponentPropsWithoutRef<'button'>;
 
-function Button({ className, handleClick = () => {}, children }: ButtonProps) {
+function Button({
+  className,
+  handleClick = () => {},
+  children,
+  type,
+  id,
+}: ButtonProps) {
   return (
     <button
-      onClick={() => handleClick()}
+      type={type}
+      onClick={() => handleClick(Number(id))}
       className={`${styles[className]} ${styles.button}`}
     >
       {children}
