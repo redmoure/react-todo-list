@@ -6,6 +6,7 @@
   border: 2px solid black;
   padding-left: 0.5rem;
   width: 20vw;
+  height: 5vh;
   background-color: white;
   border-radius: 8px;
   position: relative;
@@ -18,9 +19,13 @@ article {
 .name {
   color: black;
   font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
 }
 
 .note {
   color: black;
   font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
 }

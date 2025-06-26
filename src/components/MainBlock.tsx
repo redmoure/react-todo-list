@@ -5,6 +5,8 @@ import styles from '../styles/MainBlock.module.css';
 
 import { useRef, useState, type FormEvent } from 'react';
 import TasksList from './TasksList';
+import Menu from './Menu';
+import Workspace from './Workspace';
 
 export type taskObj = {
   name: string;
@@ -47,24 +49,34 @@ function MainBlock() {
   }
 
   return (
-    <div className={styles.block}>
-      <Button
-        className={'regular'}
-        type={'button'}
-        handleClick={handleSetIsActiveModal}
-      >
-        Click to add new task!
-      </Button>
-      <InputBox
-        taskNameRef={taskNameRef}
-        taskNoteRef={taskNoteRef}
-        isActive={isActiveModal}
-        handleIsActiveModal={handleSetIsActiveModal}
-        onSubmitTask={handleOnSubmitTask}
-      />
+    <>
+      <div className={styles.block}>
+        <Button
+          className={'regular'}
+          type={'button'}
+          handleClick={handleSetIsActiveModal}
+          isDeactivated={tasks.length >= 10 ? true : false}
+        >
+          {tasks.length < 10
+            ? 'Click to add new task!'
+            : 'Do these first, friend!'}
+        </Button>
+        <InputBox
+          taskNameRef={taskNameRef}
+          taskNoteRef={taskNoteRef}
+          isActive={isActiveModal}
+          handleIsActiveModal={handleSetIsActiveModal}
+          onSubmitTask={handleOnSubmitTask}
+        />
 
-      <TasksList tasks={tasks} onDeleteTask={handleDeleteTask} />
-    </div>
+        <TasksList tasks={tasks} onDeleteTask={handleDeleteTask} />
+      </div>
+      {/* below trying a diff layouts for the app */}
+      <div className={styles['main-layout']}>
+        <Menu onActiveModal={handleSetIsActiveModal}></Menu>
+        <Workspace tasks={tasks} onDeleteTask={handleDeleteTask}></Workspace>
+      </div>
+    </>
   );
 }
 

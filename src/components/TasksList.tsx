@@ -3,7 +3,10 @@ import type { taskObj } from './MainBlock';
 import styles from '../styles/TasksList.module.css';
 import Button from './Button';
 
-type TasksListProps = { tasks: taskObj[]; onDeleteTask: (id: number) => void };
+export type TasksListProps = {
+  tasks: taskObj[];
+  onDeleteTask: (id: number) => void;
+};
 
 function TasksList({ tasks, onDeleteTask }: TasksListProps) {
   return (
@@ -19,7 +22,7 @@ function TasksList({ tasks, onDeleteTask }: TasksListProps) {
               className={'done'}
               type={'button'}
               handleClick={onDeleteTask}
-              id={task.id}
+              idForDelete={task.id}
             >
               Done!
             </Button>

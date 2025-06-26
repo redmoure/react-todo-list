@@ -6,7 +6,8 @@ type ButtonProps = {
   className: string;
   handleClick?: (id: number) => void;
   type: 'button' | 'submit';
-  id?: number;
+  idForDelete?: number;
+  isDeactivated?: boolean;
 } & ComponentPropsWithoutRef<'button'>;
 
 function Button({
@@ -14,13 +15,15 @@ function Button({
   handleClick = () => {},
   children,
   type,
-  id,
+  idForDelete = 0,
+  isDeactivated,
 }: ButtonProps) {
   return (
     <button
       type={type}
-      onClick={() => handleClick(Number(id))}
+      onClick={() => handleClick(idForDelete)}
       className={`${styles[className]} ${styles.button}`}
+      disabled={isDeactivated}
     >
       {children}
     </button>

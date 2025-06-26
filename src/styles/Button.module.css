@@ -13,18 +13,18 @@
   text-transform: uppercase;
 }
 
-.regular:hover,
-.done:hover {
-  background-color: black;
-  color: white;
-}
-
 .button:active {
   transform: translateY(1px);
 }
 
 .button:hover {
   cursor: pointer;
+}
+
+.regular:hover,
+.done:hover {
+  background-color: black;
+  color: white;
 }
 
 .close {
@@ -38,8 +38,13 @@
   height: 0.8rem;
 }
 
+.close:hover {
+  color: red;
+}
+
 .done {
   position: absolute;
-  right: 1rem;
+  right: 0.2rem;
+  top: 0.2rem;
   height: max-content;
 }

@@ -1,0 +1,27 @@
+div {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 2px solid black;
+}
+
+li {
+  user-select: none;
+}
+
+ul li:hover {
+  cursor: pointer;
+  color: white;
+  background-color: black;
+}
+
+.menu-box {
+  background-color: white;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}

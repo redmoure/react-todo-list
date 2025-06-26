@@ -1,3 +1,10 @@
 .block {
-  height: 50vh;
+  max-height: 71vh;
+  min-height: 71vh;
+}
+
+.main-layout {
+  margin-top: 10px;
+  display: flex;
+  width: 100%;
 }
